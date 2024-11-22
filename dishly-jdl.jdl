@@ -1,0 +1,195 @@
+entity City {
+    city String,
+    hasObject Boolean,
+    createdAt Instant,
+    updatedAt Instant
+}
+
+entity Address {
+    address String,
+    ymapY String,
+    ymapX String,
+    createdAt Instant,
+    updatedAt Instant
+}
+
+entity Users {
+    username String required minlength(3),
+    firstName String,
+    lastName String,
+    email String required unique,
+    phone String unique,
+    passwordHash String required,
+    image String,
+    status String,
+    gender String,
+    role String,
+    verificationStatus String,
+    createdAt Instant,
+    updatedAt Instant,
+    gender Gender,
+    role Role,
+    userStatus UserStatus,
+    verificationStatus VerificationStatus
+}
+
+entity Kitchen {
+    name String,
+    description TextBlob,
+    image String,
+    createdAt Instant,
+    updatedAt Instant
+}
+
+entity Dish {
+    name String,
+    price Integer,
+    description TextBlob,
+    preparationTime Integer,
+    image String,
+    status String,
+    createdAt Instant,
+    updatedAt Instant,
+    composition TextBlob,
+    weight Integer,
+    dishStatus DishStatus
+}
+
+entity Menu {
+    name String,
+    description TextBlob,
+    createdAt Instant,
+    updatedAt Instant
+}
+
+entity Chief {
+    rating Float,
+    chiefStatus String,
+    about TextBlob,
+    links TextBlob,
+    educationDocument String,
+    medicalBook String,
+    chiefStatus ChiefStatus
+}
+
+entity Orders {
+    status String required,
+    updatedAt Instant,
+    createdAt Instant required,
+    sum Long,
+    paymentMethod String,
+    paymentStatus String,
+    transactionId Long,
+    paymentMethod PaymentMethod,
+    paymentStatus PaymentStatus,
+    orderStatus OrderStatus
+}
+
+entity ChiefLinks {
+    telegramLink String,
+    vkLink String,
+    odnoklassnikiLink String,
+    youtubeLink String,
+    rutubeLink String
+}
+
+entity SignatureDish {
+    name String,
+    image String,
+    description TextBlob
+}
+
+entity OrderItem {
+    quantity Integer,
+    price Integer,
+    totalPrice Integer
+}
+
+enum ChiefStatus {
+    FREE,
+    BUSY
+}
+
+enum Gender {
+    MALE,
+    FEMALE
+}
+
+enum Role {
+    ROOT,
+    ADMIN,
+    USER,
+    CHIEF
+}
+
+enum UserStatus {
+    ACTIVE,
+    BLOCKED
+}
+
+enum VerificationStatus {
+    VERIFIED,
+    NOT_VERIFIED,
+    PENDING
+}
+
+enum PaymentMethod {
+    SBP,
+    CARD
+}
+
+enum PaymentStatus {
+    PENDING,
+    COMPLETED,
+    FAILED
+}
+
+enum OrderStatus {
+    CREATED,
+    PAID,
+    SHIPPED,
+    DELIVERED
+}
+
+enum DishStatus {
+    AVAILABLE,
+    NOT_AVAILABLE
+}
+
+
+relationship OneToOne {
+    City{addree} to Address
+}
+
+relationship OneToMany {
+    City{user} to Users{city}
+    Kitchen{dish} to Dish{kitchen}
+    Menu{dish} to Dish{menu}
+}
+
+relationship ManyToOne {
+    Orders{user} to Users
+    Orders{chief} to Chief
+    Orders{city} to City
+}
+
+relationship ManyToOne {
+    Dish{menu} to Menu
+}
+
+relationship OneToMany {
+    Chief{menu} to Menu{chief}
+}
+
+relationship OneToMany {
+    Chief{links} to ChiefLinks{chief}
+}
+
+relationship ManyToOne {
+    SignatureDish{chief} to Chief
+}
+
+relationship ManyToOne {
+    OrderItem{order} to Orders
+    OrderItem{dish} to Dish
+}
