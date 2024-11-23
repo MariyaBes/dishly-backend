@@ -1,0 +1,51 @@
+{
+  "annotations": {
+    "changelogDate": "20241123144011"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "rating",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "chiefStatus",
+      "fieldType": "ChiefStatus",
+      "fieldValues": "FREE,BUSY"
+    },
+    {
+      "fieldName": "about",
+      "fieldType": "TextBlob"
+    },
+    {
+      "fieldName": "additionalLinks",
+      "fieldType": "TextBlob"
+    },
+    {
+      "fieldName": "educationDocument",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "medicalBook",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Chief",
+  "relationships": [
+    {
+      "otherEntityName": "menu",
+      "otherEntityRelationshipName": "chief",
+      "relationshipName": "menu",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "chiefLinks",
+      "otherEntityRelationshipName": "chief",
+      "relationshipName": "chiefLinks",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

@@ -1,0 +1,11 @@
+id;username;first_name;last_name;email;phone;password_hash;image;status;gender;role;verification_status;created_at;updated_at;user_status
+1;carefree;Агафон;Гришин;Ustin.Zakharov@mail.ru;(930)491-02-52;freckle breakable since;hundred brand;shovel sensitize;MALE;ADMIN;PENDING;2024-11-22T14:41:33;2024-11-23T09:22:14;ACTIVE
+2;whoa how lowball;Галина;Кабанова;Antonin_Burova@gmail.com;(923)450-72-45;back whoever service;under;sequester whereas whoa;MALE;CHIEF;NOT_VERIFIED;2024-11-22T22:38:33;2024-11-22T20:20:37;BLOCKED
+3;seriously huzzah;Януарий;Филатова;Elizaveta13@ya.ru;(935)311-63-16;yesterday upsell almost;jovially;biodegrade stake motor;FEMALE;USER;PENDING;2024-11-23T10:22:06;2024-11-22T21:54:25;BLOCKED
+4;between yahoo;Архип;Гаврилова;Emiliya_Kolesnikova@yahoo.com;(936)666-58-98;yearly;ribbon;duh whereas;MALE;ADMIN;PENDING;2024-11-23T05:54:07;2024-11-23T09:28:39;ACTIVE
+5;teammate bathhouse yippee;Владислав;Анисимова;Zoya_Mukhina@yandex.ru;(917)736-67-75;reconstitute;huzzah;boggle scholarship;MALE;USER;VERIFIED;2024-11-23T02:03:47;2024-11-23T00:16:26;ACTIVE
+6;down unless;Нина;Дементьев;Emiluk_Kosheleva@mail.ru;(979)508-30-99;tag positively while;though inside;quarrel willfully;FEMALE;ADMIN;VERIFIED;2024-11-23T03:45:55;2024-11-23T03:40:09;ACTIVE
+7;peaceful snappy unripe;Макар;Дементьева;Aleksei_Terentukeva@yandex.ru;(964)161-33-25;engage;yesterday;desecrate bend;MALE;ROOT;VERIFIED;2024-11-22T16:33:11;2024-11-23T02:38:57;ACTIVE
+8;second-hand;Вадим;Красильников;Ilarion64@gmail.com;(953)167-07-52;towards waft;downright hence;what;FEMALE;CHIEF;VERIFIED;2024-11-22T19:42:26;2024-11-23T12:51:43;BLOCKED
+9;swine yum although;Лора;Мартынова;Artemii_Larionov33@mail.ru;(992)287-94-24;our;tricky;worth;MALE;ROOT;NOT_VERIFIED;2024-11-23T10:53:36;2024-11-22T23:28:52;ACTIVE
+10;dual;Велимир;Голубева;Silukvestr.Muravukev40@mail.ru;(911)571-92-00;mallard;deplore hmph superb;opposite tail surprisingly;MALE;ROOT;VERIFIED;2024-11-22T19:20:08;2024-11-23T13:06:09;ACTIVE

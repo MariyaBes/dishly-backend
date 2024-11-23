@@ -1,0 +1,42 @@
+{
+  "annotations": {
+    "changelogDate": "20241123144016"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "TextBlob"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "Menu",
+  "relationships": [
+    {
+      "otherEntityName": "dish",
+      "otherEntityRelationshipName": "menu",
+      "relationshipName": "dish",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "chief",
+      "otherEntityRelationshipName": "menu",
+      "relationshipName": "chief",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

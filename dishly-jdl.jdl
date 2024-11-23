@@ -157,8 +157,8 @@ enum DishStatus {
 }
 
 
-relationship OneToOne {
-    City{addree} to Address
+relationship OneToMany {
+    City{addree} to Address{city}
 }
 
 relationship OneToMany {

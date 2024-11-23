@@ -34,16 +34,16 @@ spring:
   # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
   liquibase:
     contexts: prod
-    url: jdbc:postgresql://localhost:5432/dishly
+    url: jdbc:postgresql://localhost:5432/Dishly
   mail:
     host: localhost
     port: 25
     username:
     password:
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432/dishly
-    username: dishly
-    password: password
+    url: r2dbc:postgresql://localhost:5432/Dishly
+    username: postgres
+    password: 6x7DeBYg83
   thymeleaf:
     cache: true
 

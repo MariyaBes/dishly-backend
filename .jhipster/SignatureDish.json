@@ -1,0 +1,30 @@
+{
+  "annotations": {
+    "changelogDate": "20241123144019"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "TextBlob"
+    }
+  ],
+  "name": "SignatureDish",
+  "relationships": [
+    {
+      "otherEntityName": "chief",
+      "relationshipName": "chief",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

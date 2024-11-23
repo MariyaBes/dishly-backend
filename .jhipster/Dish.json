@@ -1,0 +1,71 @@
+{
+  "annotations": {
+    "changelogDate": "20241123144014"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "TextBlob"
+    },
+    {
+      "fieldName": "preparationTime",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "composition",
+      "fieldType": "TextBlob"
+    },
+    {
+      "fieldName": "weight",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dishStatus",
+      "fieldType": "DishStatus",
+      "fieldValues": "AVAILABLE,NOT_AVAILABLE"
+    }
+  ],
+  "name": "Dish",
+  "relationships": [
+    {
+      "otherEntityName": "kitchen",
+      "otherEntityRelationshipName": "dish",
+      "relationshipName": "kitchen",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "menu",
+      "otherEntityRelationshipName": "dish",
+      "relationshipName": "menu",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

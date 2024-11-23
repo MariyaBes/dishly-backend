@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Orders.
+    -->
+    <changeSet id="20241123144018-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="orders"
+                                 constraintName="fk_orders__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="users"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="chief_id"
+                                 baseTableName="orders"
+                                 constraintName="fk_orders__chief_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="chief"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="city_id"
+                                 baseTableName="orders"
+                                 constraintName="fk_orders__city_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="city"
+                                 />
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,39 @@
+{
+  "annotations": {
+    "changelogDate": "20241123144012"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "telegramLink",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "vkLink",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "odnoklassnikiLink",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "youtubeLink",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rutubeLink",
+      "fieldType": "String"
+    }
+  ],
+  "name": "ChiefLinks",
+  "relationships": [
+    {
+      "otherEntityName": "chief",
+      "otherEntityRelationshipName": "chiefLinks",
+      "relationshipName": "chief",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}
