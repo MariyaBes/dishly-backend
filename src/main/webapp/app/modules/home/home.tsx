@@ -12,12 +12,9 @@ export const Home = () => {
 
   return (
     <Row>
-      <Col md="3" className="pad">
-        <span className="hipster rounded" />
-      </Col>
       <Col md="9">
-        <h1 className="display-4">Добро пожаловать, Java Hipster!</h1>
-        <p className="lead">Это ваша домашняя страница</p>
+        <h1 className="display-4">Добро пожаловать!</h1>
+        <p className="lead">Это домашняя страница</p>
         {account?.login ? (
           <div>
             <Alert color="success">Вы вошли как пользователь &quot;{account.login}&quot;.</Alert>
@@ -43,43 +40,6 @@ export const Home = () => {
             </Alert>
           </div>
         )}
-        <p>Если у Вас возникли вопросы по JHipster:</p>
-
-        <ul>
-          <li>
-            <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer">
-              JHipster домашняя страница
-            </a>
-          </li>
-          <li>
-            <a href="https://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener noreferrer">
-              JHipster на Stack Overflow
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" rel="noopener noreferrer">
-              JHipster баг трекер
-            </a>
-          </li>
-          <li>
-            <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">
-              JHipster public chat room
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer">
-              пользователь @jhipster в Twitter
-            </a>
-          </li>
-        </ul>
-
-        <p>
-          Если вам нравится JHipster, не забудьте дать нам звёздочку на{' '}
-          <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-          !
-        </p>
       </Col>
     </Row>
   );

@@ -98,7 +98,7 @@ public class UserService {
                 if (!existingUser.isActivated()) {
                     return userRepository.delete(existingUser);
                 } else {
-                    return Mono.error(new UsernameAlreadyUsedException());
+                    return Mono.error(new UserAlreadyUsedException());
                 }
             })
             .then(userRepository.findOneByEmailIgnoreCase(userDTO.getEmail()))

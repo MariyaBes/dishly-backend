@@ -9,11 +9,14 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
- * Spring Data R2DBC repository for the Users entity.
+ * Spring Data R2DBC repository for the {@link Users} entity.
  */
 @SuppressWarnings("unused")
 @Repository
 public interface UsersRepository extends ReactiveCrudRepository<Users, Long>, UsersRepositoryInternal {
+    @Query("SELECT * FROM users entity WHERE entity.email = :email")
+    Mono<Users> findByEmail(String email);
+
     @Query("SELECT * FROM users entity WHERE entity.city_id = :id")
     Flux<Users> findByCity(Long id);
 

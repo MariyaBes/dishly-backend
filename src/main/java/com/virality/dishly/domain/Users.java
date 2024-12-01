@@ -1,23 +1,30 @@
 package com.virality.dishly.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.virality.dishly.config.Constants;
 import com.virality.dishly.domain.enumeration.Gender;
 import com.virality.dishly.domain.enumeration.Role;
 import com.virality.dishly.domain.enumeration.UserStatus;
 import com.virality.dishly.domain.enumeration.VerificationStatus;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
-import java.time.Instant;
+import java.util.Collection;
+import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 /**
  * A Users.
  */
 @Table("users")
 @SuppressWarnings("common-java:DuplicatedBlocks")
-public class Users implements Serializable {
+public class Users extends AbstractAuditingEntity<Long> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -26,23 +33,30 @@ public class Users implements Serializable {
     private Long id;
 
     @NotNull(message = "must not be null")
-    @Size(min = 3)
+    @Size(min = 3, max = 50)
+    @Pattern(regexp = Constants.LOGIN_REGEX)
     @Column("username")
     private String username;
 
+    @Size(max = 15)
     @Column("first_name")
     private String firstName;
 
+    @Size(max = 30)
     @Column("last_name")
     private String lastName;
 
+    @Email
+    @Size(min = 5, max = 254)
     @NotNull(message = "must not be null")
     @Column("email")
     private String email;
 
+    @Size(min = 12, max = 12)
     @Column("phone")
     private String phone;
 
+    @JsonIgnore
     @NotNull(message = "must not be null")
     @Column("password_hash")
     private String passwordHash;
@@ -57,22 +71,22 @@ public class Users implements Serializable {
     private Gender gender;
 
     @Column("role")
+    @Enumerated(EnumType.STRING)
     private Role role;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.name()));
+    }
 
     @Column("verification_status")
     private VerificationStatus verificationStatus;
-
-    @Column("created_at")
-    private Instant createdAt;
-
-    @Column("updated_at")
-    private Instant updatedAt;
 
     @Column("user_status")
     private UserStatus userStatus;
 
     @org.springframework.data.annotation.Transient
-    @JsonIgnoreProperties(value = { "addrees", "users" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "address", "users" }, allowSetters = true)
     private City city;
 
     @Column("city_id")
@@ -236,32 +250,6 @@ public class Users implements Serializable {
         this.verificationStatus = verificationStatus;
     }
 
-    public Instant getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public Users createdAt(Instant createdAt) {
-        this.setCreatedAt(createdAt);
-        return this;
-    }
-
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Instant getUpdatedAt() {
-        return this.updatedAt;
-    }
-
-    public Users updatedAt(Instant updatedAt) {
-        this.setUpdatedAt(updatedAt);
-        return this;
-    }
-
-    public void setUpdatedAt(Instant updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
     public UserStatus getUserStatus() {
         return this.userStatus;
     }
@@ -332,8 +320,6 @@ public class Users implements Serializable {
             ", gender='" + getGender() + "'" +
             ", role='" + getRole() + "'" +
             ", verificationStatus='" + getVerificationStatus() + "'" +
-            ", createdAt='" + getCreatedAt() + "'" +
-            ", updatedAt='" + getUpdatedAt() + "'" +
             ", userStatus='" + getUserStatus() + "'" +
             "}";
     }

@@ -53,9 +53,9 @@ public class UsersResource {
      */
     @PostMapping("")
     public Mono<ResponseEntity<Users>> createUsers(@Valid @RequestBody Users users) throws URISyntaxException {
-        LOG.debug("REST request to save Users : {}", users);
+        LOG.debug("Запрос REST для создания Users : {}", users);
         if (users.getId() != null) {
-            throw new BadRequestAlertException("A new users cannot already have an ID", ENTITY_NAME, "idexists");
+            throw new BadRequestAlertException("A new user cannot already have an ID", ENTITY_NAME, "idexists");
         }
         return usersRepository
             .save(users)
@@ -85,7 +85,7 @@ public class UsersResource {
         @PathVariable(value = "id", required = false) final Long id,
         @Valid @RequestBody Users users
     ) throws URISyntaxException {
-        LOG.debug("REST request to update Users : {}, {}", id, users);
+        LOG.debug("Запрос REST для обновления Users : {}, {}", id, users);
         if (users.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
@@ -127,7 +127,7 @@ public class UsersResource {
         @PathVariable(value = "id", required = false) final Long id,
         @NotNull @RequestBody Users users
     ) throws URISyntaxException {
-        LOG.debug("REST request to partial update Users partially : {}, {}", id, users);
+        LOG.debug("Запрос для обновления данных Users частично : {}, {}", id, users);
         if (users.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
@@ -209,7 +209,7 @@ public class UsersResource {
      */
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<List<Users>> getAllUsers() {
-        LOG.debug("REST request to get all Users");
+        LOG.debug("Запрос для получения всех Users");
         return usersRepository.findAll().collectList();
     }
 
@@ -219,7 +219,7 @@ public class UsersResource {
      */
     @GetMapping(value = "", produces = MediaType.APPLICATION_NDJSON_VALUE)
     public Flux<Users> getAllUsersAsStream() {
-        LOG.debug("REST request to get all Users as a stream");
+        LOG.debug("Запрос для получения всех Users");
         return usersRepository.findAll();
     }
 
@@ -231,7 +231,7 @@ public class UsersResource {
      */
     @GetMapping("/{id}")
     public Mono<ResponseEntity<Users>> getUsers(@PathVariable("id") Long id) {
-        LOG.debug("REST request to get Users : {}", id);
+        LOG.debug("апрос для получения Users: {}", id);
         Mono<Users> users = usersRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(users);
     }
@@ -244,7 +244,7 @@ public class UsersResource {
      */
     @DeleteMapping("/{id}")
     public Mono<ResponseEntity<Void>> deleteUsers(@PathVariable("id") Long id) {
-        LOG.debug("REST request to delete Users : {}", id);
+        LOG.debug("Запрос для удаления Users : {}", id);
         return usersRepository
             .deleteById(id)
             .then(
